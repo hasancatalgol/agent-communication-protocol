@@ -129,6 +129,11 @@ curl -X POST http://localhost:8000/runs \
         ]
       }'
 ```
+### 🪟 `curl` for Windows (CMD / PowerShell)
+
+```cmd
+curl -X POST http://localhost:8000/runs -H "Content-Type: application/json" --data-raw "{\"agent_name\": \"echo\", \"input\": [{\"role\": \"user\", \"parts\": [{\"content\": \"Howdy!\", \"content_type\": \"text/plain\"}]}]}" | jq
+```
 
 Expected output:
 

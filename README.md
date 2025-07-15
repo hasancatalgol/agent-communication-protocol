@@ -1,45 +1,44 @@
-🧠 What is ACP (Agent Communication Protocol)?
-ACP (Agent Communication Protocol) is an open protocol designed for building modular, interoperable AI agents that can communicate and collaborate through standardized HTTP APIs.
+# 🧠 What is ACP (Agent Communication Protocol)?
 
-🚀 Key Concepts
-Agent = Stateless Service
+**ACP (Agent Communication Protocol)** is an open protocol designed for building **modular, interoperable AI agents** that can communicate and collaborate through standardized HTTP APIs.
 
-Each agent is an HTTP server that accepts input messages and returns responses.
+---
 
-Agents can be LLM-backed tools, retrieval systems, function wrappers, or anything else with logic.
+## 🚀 Key Concepts
 
-Message Format
+### Agent = Stateless Service
 
-Agents communicate using structured message objects (role, content, optional tool_calls, etc.).
+- Each agent is an HTTP server that accepts input messages and returns responses.
+- Agents can be LLM-backed tools, retrieval systems, function wrappers, or anything else with logic.
 
-Compatible with LLM chat formats.
+### Message Format
 
-Standard API Endpoints
+- Agents communicate using structured message objects (`role`, `content`, optional `tool_calls`, etc.).
+- Compatible with LLM chat formats.
+
+### Standard API Endpoints
 
 Every agent implements the same REST API:
 
-GET /agents – list available agents
+- `GET /agents` – list available agents  
+- `POST /agents/<name>/run_sync` – send message and get immediate reply  
+- `POST /agents/<name>/run` – for streaming or async use  
 
-POST /agents/<name>/run_sync – send message and get immediate reply
+### Language-Agnostic
 
-POST /agents/<name>/run – for streaming or async use
+- ACP is not tied to any language or platform.
+- Python and TypeScript SDKs are available, with others planned.
 
-Language-Agnostic
+---
 
-ACP is not tied to any language or platform.
+## 🧩 Why ACP?
 
-Python and TypeScript SDKs are available, with others planned.
+- 📦 **Composable**: Easily plug agents together, no need for custom glue code.
+- 🔄 **Interoperable**: Agents can talk to each other over HTTP, no shared runtime needed.
+- 📐 **Minimalist**: Just JSON over REST. No special frameworks or platforms required.
+- 💬 **LLM-Friendly**: Message structure maps cleanly to OpenAI/Anthropic prompt formats.
 
-🧩 Why ACP?
-📦 Composable: Easily plug agents together, no need for custom glue code.
-
-🔄 Interoperable: Agents can talk to each other over HTTP, no shared runtime needed.
-
-📐 Minimalist: Just JSON over REST. No special frameworks or platforms required.
-
-💬 LLM-Friendly: Message structure maps cleanly to OpenAI/Anthropic prompt formats.
-
-
+---
 
 # 🧠 ACP Agent Server – Run & Test Guide
 

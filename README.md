@@ -115,7 +115,6 @@ in your terminal.
 ---
 
 ## 📎 Useful Links
-
-- 🔗 [ACP Documentation](https://agentcommunicationprotocol.dev)
+- 🔗 [ACP Documentation](https://agentcommunicationprotocol.dev/introduction/quickstart)
 - 🧰 [acp-sdk on PyPI](https://pypi.org/project/acp-sdk/)
 - 📦 [uv Package Manager](https://github.com/astral-sh/uv)

@@ -67,18 +67,44 @@ http://localhost:8000
 ### 🔍 List Available Agents
 
 ```bash
-curl http://localhost:8000/agents
+curl http://localhost:8000/agents | jq
 ```
 
 You should see:
 
 ```json
-[
-  {
-    "name": "echo",
-    "description": "Echoes messages"
-  }
-]
+{
+  "agents": [
+    {
+      "name": "echo",
+      "description": "Echoes everything",
+      "metadata": {
+        "annotations": null,
+        "documentation": null,
+        "license": null,
+        "programming_language": null,
+        "natural_languages": null,
+        "framework": null,
+        "capabilities": null,
+        "domains": null,
+        "tags": null,
+        "created_at": null,
+        "updated_at": null,
+        "author": null,
+        "contributors": null,
+        "links": null,
+        "dependencies": null,
+        "recommended_models": null
+      },
+      "input_content_types": [
+        "*/*"
+      ],
+      "output_content_types": [
+        "*/*"
+      ]
+    }
+  ]
+}
 ```
 
 ---
@@ -86,7 +112,22 @@ You should see:
 ### 📤 Send a Message to the Echo Agent
 
 ```bash
-curl -X POST http://localhost:8000/agents/echo/run_sync   -H "Content-Type: application/json"   -d '{"input": "Hello from ACP"}'
+curl -X POST http://localhost:8000/runs \
+  -H "Content-Type: application/json" \
+  -d '{
+        "agent_name": "echo",
+        "input": [
+          {
+            "role": "user",
+            "parts": [
+              {
+                "content": "Howdy!",
+                "content_type": "text/plain"
+              }
+            ]
+          }
+        ]
+      }'
 ```
 
 Expected output:
